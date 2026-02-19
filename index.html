@@ -19,11 +19,13 @@
 /* ===== VIDEO BACKGROUND ===== */
 .video-bg{
     position:fixed;
-    inset:0;
-    width:100%;
-    height:100%;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
     object-fit:cover;
     z-index:-2;
+    pointer-events:none;
 }
 
 /* DARK OVERLAY */
@@ -40,6 +42,7 @@ body{
     align-items:center;
     min-height:100vh;
     color:white;
+    background:#020617; /* fallback if video fails */
 }
 
 /* APP CONTAINER */
@@ -56,7 +59,7 @@ body{
 /* ===== LOGO ===== */
 .logo{
     text-align:center;
-    font-size:25px;
+    font-size:26px;
     font-weight:700;
     color:#22c55e;
     margin:10px 0;
@@ -127,17 +130,18 @@ body{
     padding:25px 20px;
     white-space:nowrap;
     border-right:1px solid rgba(255,255,255,.15);
-    font-size:15px;
+    font-size:16px;
 }
 
 .stock b{
     display:block;
+    font-size:17px;
 }
 
 .price{
     color:#22c55e;
-    font-weight:600;
-    font-size:12px;
+    font-weight:700;
+    font-size:14px;
 }
 
 @keyframes scroll{
@@ -151,7 +155,7 @@ body{
 <body>
 
 <!-- ✅ VIDEO BACKGROUND -->
-<video autoplay muted loop class="video-bg">
+<video autoplay muted loop playsinline webkit-playsinline class="video-bg">
     <source src="12984404_1920_1080_100fps.mp4" type="video/mp4">
 </video>
 
@@ -159,10 +163,10 @@ body{
 
 <div class="container">
 
-    <!-- ✅ LOGO AT VERY TOP -->
+    <!-- LOGO -->
     <div class="logo">Fidelity</div>
 
-    <!-- 🌎 USD / INTERNATIONAL STOCKS -->
+    <!-- 🌎 INTERNATIONAL STOCKS -->
     <div class="top-slider">
         <div class="track">
             <div class="stock"><b>Apple</b><div class="price">$192 ▲1.2%</div></div>
@@ -177,25 +181,23 @@ body{
         </div>
     </div>
 
-    <!-- ✅ CENTER CONTENT -->
+    <!-- CENTER -->
     <div class="center">
         <h1>Smart Trading Starts Here</h1>
         <p>Invest, earn rewards and grow your portfolio.</p>
 
         <div class="actions">
-            <button class="btn login"
-                onclick="location.href='login.html'">
+            <button class="btn login" onclick="location.href='login.html'">
                 Login
             </button>
 
-            <button class="btn signup"
-                onclick="location.href='signup.html'">
+            <button class="btn signup" onclick="location.href='signup.html'">
                 Sign Up
             </button>
         </div>
     </div>
 
-    <!-- 🇮🇳 INDIAN STOCKS (BOTTOM) -->
+    <!-- 🇮🇳 INDIAN STOCKS -->
     <div class="bottom-slider">
         <div class="track">
             <div class="stock"><b>Reliance</b><div class="price">₹2,845 ▲1.1%</div></div>
@@ -211,7 +213,6 @@ body{
     </div>
 
 </div>
-
 
 </body>
 </html>
