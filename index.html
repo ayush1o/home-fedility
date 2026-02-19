@@ -40,21 +40,25 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    min-height:100vh;
+    height:100vh;
+    overflow:hidden;   /* ✅ prevents scroll */
     color:white;
-    background:#020617; /* fallback if video fails */
+    background:#020617;
 }
+
 
 /* APP CONTAINER */
 .container{
     width:100%;
     max-width:420px;
-    min-height:100vh;
+    height:100vh;          /* ✅ fixed screen height */
+    overflow:hidden;       /* ✅ no internal scroll */
     display:flex;
     flex-direction:column;
     justify-content:space-between;
     padding:50px 20px;
 }
+
 
 /* ===== LOGO ===== */
 .logo{
@@ -148,6 +152,12 @@ body{
     from{transform:translateX(0);}
     to{transform:translateX(-50%);}
 }
+html, body{
+    height:100%;
+    overflow:hidden;
+    touch-action:manipulation;
+}
+
 
 </style>
 </head>
@@ -213,6 +223,5 @@ body{
     </div>
 
 </div>
-
 </body>
 </html>
